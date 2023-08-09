@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Products</string>
+    <string name="text_network_message">Network connection not working</string>
 </resources>
