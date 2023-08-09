@@ -21,6 +21,10 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+
+        // buildConfigField("String", "BUILD_TIME", "\"" + System.currentTimeMillis().toString() + "\"")
+        buildConfigField("String", "API_URL", api_url)
+        //buildConfigField "String", "API_URL", api_url
     }
 
     buildTypes {
