@@ -1,67 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cardView"
-    android:layout_width="match_parent"
-    android:layout_height="280dp"
-    android:layout_margin="4dp"
-    android:foreground="?attr/selectableItemBackground"
-    card_view:cardCornerRadius="8dp"
-    card_view:cardElevation="@dimen/margin6"
-    card_view:cardMaxElevation="@dimen/margin6">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraint_layout_main"
+    <data>
+
+        <variable
+            name="productUI"
+            type="com.example.products.presentation.model.ProductUI" />
+        
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:background="@drawable/shape_rectangle"
-        android:orientation="vertical">
+        android:layout_height="280dp"
+        android:layout_margin="4dp"
+        android:foreground="?attr/selectableItemBackground"
+        card_view:cardCornerRadius="8dp"
+        card_view:cardElevation="@dimen/margin6"
+        card_view:cardMaxElevation="@dimen/margin6">
 
-        <ImageView
-            android:id="@+id/image_view_product"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription"
-            tools:srcCompat="@tools:sample/backgrounds/scenic[8]" />
-
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_layout_main"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:background="@color/color_background"
-            android:orientation="vertical"
-            android:padding="@dimen/margin6"
-            card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toStartOf="parent">
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_rectangle"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/text_view_name"
-                style="@style/TextAppearance.Material3.HeadlineSmall"
+            <ImageView
+                android:id="@+id/image_view_product"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:textColor="@android:color/white"
-                tools:text="Buzz" />
+                android:scaleType="centerCrop"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription"
+                tools:srcCompat="@tools:sample/backgrounds/scenic[8]" />
 
-            <TextView
-                android:id="@+id/text_view_price"
-                style="@style/TextAppearance.Material3.BodyLarge"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
-                tools:text="A Real Bitter Experience." />
+                android:layout_height="70dp"
+                android:background="@color/color_background"
+                android:orientation="vertical"
+                android:padding="@dimen/margin6"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toStartOf="parent">
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/text_view_name"
+                    style="@style/TextAppearance.Material3.HeadlineSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:textColor="@android:color/white"
+                    android:text="@{productUI.title}"
+                    tools:text="Buzz" />
+
+                <TextView
+                    android:id="@+id/text_view_price"
+                    style="@style/TextAppearance.Material3.BodyLarge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:text="@{productUI.price}"
+                    tools:text="A Real Bitter Experience." />
+
+            </LinearLayout>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-</com.google.android.material.card.MaterialCardView>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

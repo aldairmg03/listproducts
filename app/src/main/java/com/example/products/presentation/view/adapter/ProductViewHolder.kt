@@ -10,9 +10,8 @@ class ProductViewHolder(private val binding: ItemProductBinding) :
 
     fun bind(product: ProductUI) {
         with(binding) {
+            productUI = product
             imageViewProduct.loadImage(product.thumbnail)
-            textViewName.text = product.title
-            textViewPrice.text = product.price
         }
     }
 
