@@ -1,5 +1,6 @@
 package com.example.products.di
 
+import com.example.products.data.datasource.local.ProductDao
 import com.example.products.data.datasource.remote.ProductRemoteDataSource
 import com.example.products.data.datasource.remote.ProductRemoteDataSourceImpl
 import com.example.products.data.datasource.remote.ProductService
@@ -32,7 +33,8 @@ object ProductModule {
     @Singleton
     fun provideProductRepository(
         @IoDispatcher dispatcherIO: CoroutineDispatcher,
-        productRemoteDataSource: ProductRemoteDataSource
-    ): ProductRepository = ProductRepositoryImpl(dispatcherIO, productRemoteDataSource)
+        productRemoteDataSource: ProductRemoteDataSource,
+        localDataSource: ProductDao
+    ): ProductRepository = ProductRepositoryImpl(dispatcherIO, productRemoteDataSource, localDataSource)
 
 }
